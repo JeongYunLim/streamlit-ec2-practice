@@ -32,9 +32,16 @@ name = st.text_input("이름을 입력하세요")
 message = st.text_input("확인 메시지를 입력하세요")
 
 if st.button("결과 확인"):
-    if name and message:
-        current_time = datetime.now(ZoneInfo("Asia/Seoul")).strftime("%Y-%m-%d %H:%M:%S")
+    current_time = datetime.now(ZoneInfo("Asia/Seoul")).strftime("%Y-%m-%d %H:%M:%S")
 
+    print("========================================", flush=True)
+    print("[LOG] Streamlit 앱에서 버튼이 클릭되었습니다.", flush=True)
+    print(f"[LOG] 입력한 이름: {name}", flush=True)
+    print(f"[LOG] 입력한 메시지: {message}", flush=True)
+    print(f"[LOG] 확인 시간: {current_time} KST", flush=True)
+    print("========================================", flush=True)
+
+    if name and message:
         st.success("입력한 내용이 정상적으로 출력되었습니다.")
         st.write(f"입력한 이름: {name}")
         st.write(f"입력한 메시지: {message}")
